@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Evaluaties Basisweekend Hoofdanimator</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/ha.css" type="text/css" />
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="scripts/highcharts.js" type="text/javascript"></script>
+    <script src="scripts/highcharts-more.js" type="text/javascript"></script>
+   <!-- <script src="scripts/dark-unica.js" type="text/javascript"></script>-->
+    <script src="scripts/papaparse.js" type="text/javascript"></script>
+
+
+    <script src="scripts/gilwellGraph.js" type="text/javascript"></script>
+    <script src="scripts/attestenGraph.js" type="text/javascript"></script>
+    <script src="scripts/aantalCursussenGraph.js" type="text/javascript"></script>
+    <script src="scripts/meekunnenGraph.js" type="text/javascript"></script>
+    <script src="scripts/nodigeInformatieGraph.js" type="text/javascript"></script>
+    <script src="scripts/persoonlijkeFiches.js" type="text/javascript"></script>
+    <script src="scripts/tijdensCursusGeleerdGraph.js" type="text/javascript"></script>
+    <script src="scripts/werkwinkelsGraph.js" type="text/javascript"></script>
+    <script src="scripts/begeleidingGraph.js" type="text/javascript"></script>
+    <script src="scripts/ha.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Evaluaties basisweekend hoofdanimator</h1>
+
+    <h3>Over de deelnemers</h3>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div id="gilwellGraph" style="width:100%; height:280px;"></div>
+        </div>
+        <div class="col-md-4">
+            <div id="attestenGraph" style="width:100%; height:250px;"></div>
+        </div>
+        <div class="col-md-4">
+            <div id="aantalCursussenGraph" style="width:100%; height:280px;"></div>
+        </div>
+    </div>
+
+    <h3>Informatie vooraf</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="meekunnenGraph" style="width:100%; height:200px;"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="nodigeInformatieGraph" style="width:100%; height:200px;"></div>
+        </div>
+    </div>
+
+    <h3>Inhoud van de cursus</h3>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="werkwinkelsGraph" style="width:100%; height:450px;"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="tijdensCursusGeleerdGraph" style="width:100%; height:300px;"></div>
+        </div>
+    </div>
+
+    <h3>Over de begeleiding</h3>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="begeleidingGraph" style="width:100%; height:600px;"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h3>Spreek vrijuit</h3>
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#gehoord" role="tab" data-toggle="tab">Waar hoorde je van de cursus?</a></li>
+                <li class=""><a href="#opbouw" role="tab" data-toggle="tab">Opbouw weekend</a></li>
+                <li class=""><a href="#vastPloegje" role="tab" data-toggle="tab">Een vast ploegje</a></li>
+                <li class=""><a href="#verwachtingenBeantwoord" role="tab" data-toggle="tab">Verwachtingen beantwoord</a></li>
+                <li class=""><a href="#aanraden" role="tab" data-toggle="tab">Aanrader?</a></li>
+                <li class=""><a href="#verderNog" role="tab" data-toggle="tab">Verder?</a></li>
+            </ul>
+
+            <div class="tab-content" style="margin-top: 12px; max-height: 500px; overflow: scroll">
+                <div class="tab-pane fade active in" id="gehoord">
+                    <table id="waarGehoord" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr><th style="width: 15%">Naam</th><th>Waar heb je van de cursus gehoord?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="opbouw">
+                    <table id="opbouwWeekendTable" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th style="width: 16%">Naam</th>
+                            <th style="width: 42%">Wat vond je goed aan de opbouw van het weekend?</th>
+                            <th style="width: 42%">Wat vond je slecht aan de opbouw van het weekend?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="vastPloegje">
+                    <table id="vastPloegjeTable" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr><th style="width: 15%">Naam</th><th>Wat vond je ervan dat je verschillende werkwinkels volgde met een vast ploegje?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="verwachtingenBeantwoord">
+                    <table id="verwachtingenBeantwoordTable" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr><th style="width: 15%">Naam</th><th>Beantwoordde het weekend aan je verwachtingen? Waarom?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="aanraden">
+                    <table id="aanradenTable" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr><th style="width: 15%">Naam</th><th>Zou je deze vorming aanraden aan andere (Scouts en Gidsen) leiding?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="verderNog">
+                    <table id="verderNogTable" class="table table-condensed table-hover table-bordered">
+                        <thead>
+                        <tr><th style="width: 15%">Naam</th><th>Wil je verder nog iets kwijt?</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+</body>
+</html>
